@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+
+     <meta charset="UTF -8">
+	 <meta http-equiv="X_UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <title>Dashboard</title>
+	 
+	 <link rel="stylesheet" href="style.css">
+
+</head>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['line']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Time');
+      data.addColumn('number', 'Income');
+      data.addColumn('number', 'Expence');
+      data.addColumn('number', 'Profit');
+	  data.addColumn('number', 'Cost');
+
+      data.addRows([
+        
+        [1.00,  30.9, 69.5, 32.4, 6],
+        [2.00,  25.4,   57, 25.7, 4],
+        [3.00,  11.7, 18.8, 10.5, 6],
+        [4.00,  11.9, 17.6, 10.4, 7],
+        [5.00,   8.8, 13.6,  7.7, 10],
+        [6.00,   7.6, 12.3,  9.6, 9],
+        [7.00,  12.3, 29.2, 10.6, 8],
+        [8.00,  16.9, 42.9, 14.8, 8],
+        [9.00, 12.8, 30.9, 11.6, 2],
+        [10.00,  5.3,  7.9,  4.7, 1],
+        [11.00,  6.6,  8.4,  5.2, 5],
+        [12.00,  4.8,  6.3,  3.6, 6],
+        [13.00,  4.2,  6.2,  3.4, 4],
+		[14.00,  11.7, 18.8, 10.5, 6],
+        [15.00,  11.9, 17.6, 10.4, 7],
+        [16.00,   8.8, 13.6,  7.7, 10],
+        [17.00,   7.6, 12.3,  9.6, 9],
+        [18.00,  12.3, 29.2, 10.6, 8],
+        [19.00,  16.9, 42.9, 14.8, 8],
+        [20.00, 12.8, 30.9, 11.6, 2],
+        [21.00,  5.3,  7.9,  4.7, 1],
+        [22.00,  6.6,  8.4,  5.2, 5],
+        [23.00,  4.8,  6.3,  3.6, 6],
+        [24.00,  4.2,  6.2,  3.4, 4]
+	  ]);
+      
+
+      var options = {
+        chart: {
+          
+        },
+        width: 1530,
+        height: 300,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+  </script>
+  
+ 
+
+
+<body bgcolor="#00CCFF">
+
+
+<center>
+   
+   <form action="">
+    <select name="type">
+     <option value="daily">Daily</option>
+     <option value="weekly">Weekly</option>
+     <option value="monthly">Monthly</option>
+    </select>
+   </form>
+</center>
+   
+   <table>
+      <tr>
+	     <th><h1><span class="icon"><ion-icon name="thermometer-outline"></ion-icon></ion-icon></span>Temperature</h1></th>
+	  </tr>
+	  
+	  <tr>
+	      <td><div id="line_top_x"></div></td>
+	  </tr>
+   </table>
+   
+   <table>
+      <tr>
+	     <th><h1><span class="icon"><ion-icon name="water-outline"></ion-icon></span>Humidity</h1></th>
+		 <th colspan="2"><h1><span class="icon"><ion-icon name="speedometer-outline"></ion-icon></span>Real time readings</h1></th>
+	  </tr>
+      
+	  <tr>
+	     <td><div id="line_top_x"></div></td>
+		 <td></td>
+		 <td></td>
+	  </tr>
+   </table>
+
+
+
+
+<!---- Scripts ---->
+	<script src="assets/js/main.js"></script>
+
+	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>   
+</body>
+</html>

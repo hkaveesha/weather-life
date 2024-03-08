@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      // Load Charts and the packages.
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.load('current', {'packages':['line']});
+
+      // Draw thecharts when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+    var tempdata = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Temparature', 32],
+        ]);
+    var humiditydata =google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Humidity', 55],
+        ]);    
+    var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Time');
+        data.addColumn('number', 'Temparature');
+        data.addColumn('number', 'Humidity');
+        data.addRows([
+        
+        [1.0, 30.9, 69.5],
+[2.0, 25.4, 57],
+[3.0, 11.7, 18.8],
+[4.0, 11.9, 17.6],
+[5.0, 8.8, 13.6],
+[6.0, 7.6, 12.3],
+[7.0, 12.3, 29.2],
+[8.0, 16.9, 42.9],
+[9.0, 12.8, 30.9],
+[10.0, 5.3, 7.9],
+[11.0, 6.6, 8.4],
+[12.0, 4.8, 6.3],
+[13.0, 4.2, 6.2],
+[14.0, 11.7, 18.8],
+[15.0, 11.9, 17.6],
+[16.0, 8.8, 13.6],
+[17.0, 7.6, 12.3],
+[18.0, 12.3, 29.2],
+[19.0, 16.9, 42.9],
+[20.0, 12.8, 30.9],
+[21.0, 5.3, 7.9],
+[22.0, 6.6, 8.4],
+[23.0, 4.8, 6.3],
+[24.0, 4.2, 6.2]
+
+
+	  ]);
+        var options2 = {
+        chart2: {
+          
+        },
+        width: screen.width * 0.91,
+        height: 300,
+        axes: {
+          x: {
+            0: {side: 'top'}
+          }
+        }
+      };
+      var chart2 = new google.charts.Line(document.getElementById('line_chart'));
+      chart2.draw(data, google.charts.Line.convertOptions(options2));
+
+        var options = {
+         width: 200, height: 200,
+         greenFrom: 0, greenTo: 30,
+         redFrom: 42, redTo: 50,
+         yellowFrom:30, yellowTo: 42,
+         minorTicks: 2
+       };
+       var humidityoptions = {
+         width: 200, height: 200,
+         greenFrom: 30, greenTo: 100,
+         max:100,
+         redFrom: 0, redTo: 10,
+         yellowFrom:10, yellowTo: 30,
+         minorTicks: 5,
+         greenColor: '008C01',
+       };
+    var chart1 = new google.visualization.Gauge(document.getElementById('chart1_div'));
+
+    chart1.draw(humiditydata, humidityoptions);
+    var tempoptions = {
+         width: 600, height: 200,
+         max:50,
+         greenFrom: 0, greenTo: 35,
+         redFrom: 45, redTo: 50,
+         yellowFrom:35, yellowTo: 45,
+         minorTicks: 5,
+         greenColor: '008C01',
+        //  yellowColor: '#FFFFCC',
+        //  redColor:'AF1111'
+       };
+
+    var chart2 = new google.visualization.Gauge(document.getElementById('chart2_div'));
+
+    chart2.draw(tempdata, tempoptions);
+
+      }
+    </script>
+  </head>
+<body class="background-image">
+    <div class="topnav">
+        <div>
+            <select name="timeline" id="times">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+            </select>
+            <h1>Temparature</h1>
+        </div>
+    </div>
+    <table class="columns">
+      <tr>
+        <td><div id="line_chart" style="border: 1px solid #ccc"></div></td>
+      </tr>
+      <tr>
+        <td class="background-image">
+            <div class="topic">Real time readings</div>
+            <div class="chart-container">  
+                <div id="chart2_div"></div>  
+                <div id="chart1_div"></div>
+                
+            </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -46,7 +47,7 @@
         data.addColumn('number', 'Temparature');
         data.addColumn('number', 'Humidity');
         data.addRows([
-        
+
         [1.0, 30.9, 69.5],
 [2.0, 25.4, 57],
 [3.0, 11.7, 18.8],
@@ -76,7 +77,7 @@
 	  ]);
         var options2 = {
         chart2: {
-          
+
         },
         width: screen.width * 0.91,
         height: 300,
@@ -92,8 +93,8 @@
         var options = {
          width: 200, height: 200,
          greenFrom: 0, greenTo: 30,
-         redFrom: 42, redTo: 50,
-         yellowFrom:30, yellowTo: 42,
+         redFrom: 35, redTo: 40,
+         yellowFrom:30, yellowTo: 35,
          minorTicks: 2
        };
        var humidityoptions = {
@@ -110,10 +111,10 @@
     chart1.draw(humiditydata, humidityoptions);
     var tempoptions = {
          width: 600, height: 200,
-         max:50,
-         greenFrom: 0, greenTo: 35,
-         redFrom: 45, redTo: 50,
-         yellowFrom:35, yellowTo: 45,
+         max:40,
+         greenFrom: 0, greenTo: 30,
+         redFrom: 35, redTo: 40,
+         yellowFrom:30, yellowTo: 35,
          minorTicks: 5,
          greenColor: '008C01',
         //  yellowColor: '#FFFFCC',
@@ -147,8 +148,9 @@
                 <option value="monthly">Monthly</option>
                 <option value="yearly">Yearly</option>
             </select>
-            
-            <h1>Temparature </h1>
+
+            <h1><span class="icon"><ion-icon name="thermometer-outline"></ion-icon></ion-icon></span>Temparature</h1>
+
         </div>
     </div>
     <table class="columns">
@@ -157,14 +159,17 @@
       </tr>
       <tr>
         <td class="background-image">
-            <div class="topic">Real time readings</div>
+            <div class="topic"><span class="icon"><ion-icon name="speedometer-outline"></ion-icon></span>Real time readings</div>
             <div class="chart-container">  
                 <div id="chart2_div"></div>  
                 <div id="chart1_div"></div>
-                
+
             </div>
         </td>
       </tr>
     </table>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
   </body>
 </html>

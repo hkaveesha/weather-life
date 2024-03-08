@@ -10,17 +10,37 @@
 
       // Draw thecharts when Charts is loaded.
       google.charts.setOnLoadCallback(drawChart);
+      function showErrorMessage() {
+    var toast = document.getElementById('toast');
+    var humtoast = document.getElementById('humtoast');
+    toast.classList.remove('hidden'); // Show the toast
+    humtoast.classList.remove('humhidden'); // Show the toast
+    setTimeout(function() {
+        toast.classList.add('hidden'); // Hide the toast after some time
+    }, 5000); // Hide after 5 seconds (adjust as needed)
+    setTimeout(function() {
+        humtoast.classList.add('humhidden'); // Hide the toast after some time
+    }, 5000);
+}
 
       function drawChart() {
 
     var tempdata = google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          ['Temparature', 32],
+          ['Temparature', 47],
         ]);
     var humiditydata =google.visualization.arrayToDataTable([
           ['Label', 'Value'],
-          ['Humidity', 55],
-        ]);    
+          ['Humidity', 5],
+        ]);   
+        
+        
+    var tempValue = tempdata.getValue(0, 1); // Get the temperature value from the gauge
+    console.log(tempValue);
+    if (tempValue >= 45) {
+        console.log("Temperature is too high!");
+        showErrorMessage(); // Call a function to show the error message
+    }    
     var data = new google.visualization.DataTable();
         data.addColumn('number', 'Time');
         data.addColumn('number', 'Temparature');
@@ -103,12 +123,23 @@
     var chart2 = new google.visualization.Gauge(document.getElementById('chart2_div'));
 
     chart2.draw(tempdata, tempoptions);
+    var tempValue = tempdata.getValue(0, 1); // Get the temperature value from the gauge
+    if (tempValue >= 45) {
+        showErrorMessage(); // Call a function to show the error message
+    }
+    var humValue = humiditydata.getValue(0, 1); // Get the temperature value from the gauge
+    if (tempValue <=5) {
+        showErrorMessage(); // Call a function to show the error message
+    }
 
       }
     </script>
   </head>
 <body class="background-image">
+  <div id="toast" class="hidden">Error: Temperature is too high!</div>
+  <div id="humtoast" class="humhidden">Error: Humidity is too low!</div>
     <div class="topnav">
+        
         <div>
             <select name="timeline" id="times">
                 <option value="daily">Daily</option>
@@ -116,7 +147,8 @@
                 <option value="monthly">Monthly</option>
                 <option value="yearly">Yearly</option>
             </select>
-            <h1>Temparature</h1>
+            
+            <h1>Temparature </h1>
         </div>
     </div>
     <table class="columns">

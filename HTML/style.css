@@ -19,3 +19,60 @@
    width: 100%;
    object-fit: cover;
 }
+.guage{
+   margin: 200px auto;
+   width: 1000px;
+   height: 600px;
+  
+}
+.topnav{
+   display: flex;
+   color: white;
+   justify-content: center;
+   align-items: center;
+   padding: 20px 50px;
+   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+   height:150px;
+   position: relative;
+   width: 100%;
+   z-index: 1000;
+}
+#times{
+   margin-bottom: 30px;
+}
+.chart_div{
+   padding-top: 30px;
+}
+.columns {
+   width: 100%;
+   border-collapse: collapse;
+ }
+ .columns td {
+   padding: 10px;
+ }
+ .chart-container {
+   display: flex;
+   justify-content: space-between;
+   margin-left: 25%;
+ }
+ .chart-container > div {
+   flex: 1;
+ }
+ .chart1_div {
+   margin-left: 10%;
+ }
+ .topic{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 10px;
+   margin-left: 50px;
+   font-size: 30px;
+   font-weight: bold;
+ }
+ .background-image {
+   background-image: url('https://wallpaperaccess.com/full/398864.jpg');
+   background-size: cover;
+   background-size: 100% 100%;
+   background-position: center;
+ }
